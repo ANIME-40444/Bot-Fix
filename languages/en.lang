@@ -1,8 +1,8 @@
 # index.js
-Goat.newVersionDetected=ʏᴏᴜ ᴀʀᴇ ᴜꜱɪɴɢ ᴠᴇʀꜱɪᴏɴ %1, ᴛʜᴇ ʟᴀᴛᴇꜱᴛ ᴠᴇʀꜱɪᴏɴ ɪꜱ %2. ᴘʟᴇᴀꜱᴇ ᴜᴘᴅᴀᴛᴇ ᴛᴏ ᴜꜱᴇ ᴛʜᴇ ʙᴏᴛ ʙᴇᴛᴛᴇʀ ʙʏ ᴛʏᴘɪɴɢ ɪɴᴛᴏ ᴛʜᴇ ᴄᴏɴꜱᴏʟᴇ/ᴄᴍᴅ ᴄᴏᴍᴍᴀɴᴅ: %3
-Goat.autoRestart1=ʙᴏᴛ ᴡɪʟʟ ᴀᴜᴛᴏ ʀᴇꜱᴛᴀʀᴛ ɪɴ %1
-Goat.autoRestart2=ʙᴏᴛ ᴡɪʟʟ ᴀᴜᴛᴏ ʀᴇꜱᴛᴀʀᴛ ʙʏ ᴄʀᴏɴ ᴊᴏʙ: %1
-Goat.googleApiTokenExpired=ɢᴏᴏɢʟᴇ ᴀᴘɪ ʀᴇꜰʀᴇꜱʜ ᴛᴏᴋᴇɴ ʜᴀꜱ ᴇxᴘɪʀᴇᴅ ᴏʀ ʙᴇᴇɴ ʀᴇᴠᴏᴋᴇᴅ, ᴘʟᴇᴀꜱᴇ ɢᴇᴛ ᴀ ɴᴇᴡ ᴛᴏᴋᴇɴ ᴀᴛ https://developers.google.com/oauthplayground/
+Goat.newVersionDetected=ʏᴏᴜ ᴀʀᴇ ᴜsɪɴɢ ᴠᴇʀsɪᴏɴ %1, ᴛʜᴇ ʟᴀᴛᴇsᴛ ᴠᴇʀsɪᴏɴ ɪs %2. ᴘʟᴇᴀsᴇ ᴜᴘᴅᴀᴛᴇ ᴛᴏ ᴜsᴇ ᴛʜᴇ ʙᴏᴛ ʙᴇᴛᴛᴇʀ ʙʏ ᴛʏᴘɪɴɢ ɪɴᴛᴏ ᴛʜᴇ ᴄᴏɴsᴏʟᴇ/ᴄᴍᴅ ᴄᴏᴍᴍᴀɴᴅ: %3
+Goat.autoRestart1=ʙᴏᴛ ᴡɪʟʟ ᴀᴜᴛᴏ ʀᴇsᴛᴀʀᴛ ɪɴ %1
+Goat.autoRestart2=ʙᴏᴛ ᴡɪʟʟ ᴀᴜᴛᴏ ʀᴇsᴛᴀʀᴛ ʙʏ ᴄʀᴏɴ ᴊᴏʙ: %1
+Goat.googleApiTokenExpired=ɢᴏᴏɢʟᴇ ᴀᴘɪ ʀᴇғʀᴇsʜ ᴛᴏᴋᴇɴ ʜᴀs ᴇxᴘɪʀᴇᴅ ᴏʀ ʙᴇᴇɴ ʀᴇᴠᴏᴋᴇᴅ, ᴘʟᴇᴀsᴇ ɢᴇᴛ ᴀ ɴᴇᴡ ᴛᴏᴋᴇɴ ᴀᴛ https://developers.google.com/oauthplayground/
 
 
 
@@ -63,7 +63,7 @@ login.listenMqttCloseByUser=ʟɪsᴛᴇɴᴍǫᴛᴛ ᴄʟᴏsᴇᴅ ʙʏ ᴜs�
 login.retryCheckLiveCookie=ʀᴇᴛʀʏɪɴɢ ᴛᴏ ᴄʜᴇᴄᴋ ᴄᴏᴏᴋɪᴇ... %1
 login.startBotSuccess=ʙᴏᴛ ʜᴀs ʙᴇᴇɴ sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssꜰᴜʟʟʏ, sᴛᴀʀᴛ ʀᴇᴄᴇɪᴠɪɴɢ ᴍᴇssᴀɢᴇs ꜰʀᴏᴍ ᴜsᴇʀs
 
-version.tooOldVersion=ʏᴏᴜ ᴀʀᴇ ᴜsɪɴɢ ᴀ ᴛᴏᴏ ᴏʟᴅ ᴠᴇʀsɪᴏɴ ᴏꜰ ᴍᴀʜᴀʙᴜʙ ʙᴏᴛ, ᴘʟᴇᴀsᴇ ᴜᴘᴅᴀᴛᴇ ᴛᴏ ᴛʜᴇ ʟᴀᴛᴇsᴛ ᴠᴇʀsɪᴏɴ ʙʏ ᴛʏᴘɪɴɢ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ: %1 ɪɴᴛᴏ ᴛʜᴇ ᴄᴍᴅ/ᴄᴏɴsᴏʟᴇ/ᴛᴇʀᴍɪɴᴀʟ/sʜᴇʟʟ
+version.tooOldVersion=ʏᴏᴜ ᴀʀᴇ ᴜsɪɴɢ ᴀ ᴛᴏᴏ ᴏʟᴅ ᴠᴇʀsɪᴏɴ ᴏꜰ ᴊɪsᴀɴ ʙᴏᴛ, ᴘʟᴇᴀsᴇ ᴜᴘᴅᴀᴛᴇ ᴛᴏ ᴛʜᴇ ʟᴀᴛᴇsᴛ ᴠᴇʀsɪᴏɴ ʙʏ ᴛʏᴘɪɴɢ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ: %1 ɪɴᴛᴏ ᴛʜᴇ ᴄᴍᴅ/ᴄᴏɴsᴏʟᴇ/ᴛᴇʀᴍɪɴᴀʟ/sʜᴇʟʟ
 
 
 
@@ -80,7 +80,8 @@ loadData.refreshThreadDataSuccess=ᴜᴘᴅᴀᴛᴇᴅ ɪɴғᴏʀᴍᴀᴛɪ�
 loadData.refreshThreadDataError=ˢᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ wʜᴇɴ ᴜᴘᴅᴀᴛɪɴɢ ᴛʜᴇ ɢʳᴏᴜᴘs ɪɴғᴏʀᴍᴀᴛɪᴏɴ!
 
 
-# bot/login/loadScripts.jsloadScripts.loadScriptsError=ᴛʜᴇ %1 ғɪʟᴇs ʜᴀᴠᴇ ᴀɴ ᴇʀʀᴏʀ ᴅᴜʀɪɴɢ ʟᴏᴀᴅɪɴɢ:
+# bot/login/loadScripts.js
+loadScripts.loadScriptsError=ᴛʜᴇ %1 ғɪʟᴇs ʜᴀᴠᴇ ᴀɴ ᴇʀʀᴏʀ ᴅᴜʀɪɴɢ ʟᴏᴀᴅɪɴɢ:
 loadScripts.loadScriptsNotMatchOrigin=ᴛʜᴇ %1 ғɪʟᴇs ᴅᴏ ɴᴏᴛ ᴍᴀᴛᴄʜ ᴛʜᴇ ᴏʀɪɢɪɴᴀʟ ғɪʟᴇs ᴏɴ ᴛʜᴇ ɢɪᴛʜᴜʙ prᴏᴊᴇᴄᴛ, ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ᴛʜᴇsᴇ cᴏᴍᴍᴀɴᴅ ғɪʟᴇs ᴀʀᴇ ʀᴇʟɪᴀʙʟᴇ:
 loadScripts.NOT_FOUND=ɴᴏᴛ ғᴏᴜɴᴅ ɪɴ ᴛʜᴇ ᴏʀɪɢɪɴᴀʟ sᴏᴜʀᴄᴇ cᴏᴅᴇ:
 loadScripts.NOT_MATCH=ᴅᴏᴇs ɴᴏᴛ ᴍᴀᴛᴄʜ ᴛʜᴇ ᴏʀɪɢɪɴᴀʟ sᴏᴜʀᴄᴇ cᴏᴅᴇ:

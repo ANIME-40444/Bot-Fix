@@ -28,31 +28,7 @@ const numberNames = [
   "Centillion", "Uncentillion", "Duocentillion", "Trecentillion", "Quattuorcentillion",
   "Quincentillion", "Sexcentillion", "Septencentillion", "Octocentillion",
   "Novemcentillion", "Quattuordecillion", "Quindecillion", "Sexdecillion",
-  "Septendecillion", "Octodecillion", "Novemdecillion", "Vigintillion",
-  "Unvigintillion", "Duovigintillion", "Tresvigintillion", "Quattuorvigintillion",
-  "Quinvigintillion", "Sesvigintillion", "Septemvigintillion", "Octovigintillion",
-  "Novemvigintillion", "Trigintillion", "Untrigintillion", "Duotrigintillion",
-  "Tretrigintillion", "Quattuortrigintillion", "Quintrigintillion", "Sestrigintillion",
-  "Septentrigintillion", "Octotrigintillion", "Novemtrigintillion", "Quadragintillion",
-  "Unquadragintillion", "Duoquadragintillion", "Trequadragintillion",
-  "Quattuorquadragintillion", "Quinquadragintillion", "Sexquadragintillion",
-  "Septenquadragintillion", "Octoquadragintillion", "Novemquadragintillion",
-  "Quinquagintillion", "Unquinquagintillion", "Duoquinquagintillion",
-  "Trequinquagintillion", "Quattuorquinquagintillion", "Quinquinquagintillion",
-  "Sexquinquagintillion", "Septenquinquagintillion", "Octoquinquagintillion",
-  "Novemquinquagintillion", "Sexagintillion", "Unsexagintillion", "Duosexagintillion",
-  "Tresexagintillion", "Quattuorsexagintillion", "Quinsexagintillion",
-  "Sexsexagintillion", "Septensexagintillion", "Octosexagintillion",
-  "Novemsexagintillion", "Septuagintillion", "Unseptuagintillion",
-  "Duoseptuagintillion", "Treseptuagintillion", "Quattuorseptuagintillion",
-  "Quinseptuagintillion", "Sexseptuagintillion", "Septenseptuagintillion",
-  "Octoseptuagintillion", "Novemseptuagintillion", "Octogintillion",
-  "Unoctogintillion", "Duoctogintillion", "Treoctogintillion", "Quattuoroctogintillion",
-  "Quinoctogintillion", "Sexoctogintillion", "Septemoctogintillion",
-  "Octooctogintillion", "Novemoctogintillion", "Nonagintillion", "Unnonagintillion",
-  "Duononagintillion", "Trenonagintillion", "Quattuornonagintillion",
-  "Quinnonagintillion", "Sexnonagintillion", "Septennonagintillion",
-  "Octononagintillion", "Novemnonagintillion", "Centillion"
+  "Septendecillion", "Octodecillion", "Novemdecillion", "Vigintillion"
 ];
 
 function formatMoney(num) {
@@ -77,8 +53,8 @@ module.exports = {
   config: {
     name: "spy",
     aliases: ["spy"],
-    version: "2.0",
-    author: "Rômeo",
+    version: "2.5",
+    author: "JISAN", // আপনার নাম আপডেট করা হয়েছে
     countDown: 5,
     shortDescription: { en: "Show user info card" },
     longDescription: { en: "Generate a canvas image showing user stats" },
@@ -114,33 +90,29 @@ module.exports = {
     const memberData = threadData.members.find(member => member.userID === uid);
     const messages = memberData ? memberData.count || 0 : 0;
 
-    let username;
+    let username, genderText;
     try {
       const userInfo = await api.getUserInfo(uid);
-      username = userInfo[uid]?.vanity || userInfo[uid]?.name || "Not set";
+      const user = userInfo[uid];
+      username = user?.vanity || user?.name || "Not set";
+      
+      // জেন্ডার ডিটেকশন লজিক ইমপ্রুভমেন্ট
+      const gender = user?.gender; 
+      if (gender === 1 || gender === "FEMALE") genderText = "Female";
+      else if (gender === 2 || gender === "MALE") genderText = "Male";
+      else genderText = "Unknown";
+
     } catch (e) {
       username = userData.name || "Not set";
-    }
-
-    let genderText;
-    switch (userData.gender) {
-      case 1:
-        genderText = "Female"; break;
-      case 2:
-        genderText = "Male"; break;
-      default:
-        genderText = "Unknown";
+      // ডাটাবেজ থেকে জেন্ডার চেক
+      if (userData.gender == 1) genderText = "Female";
+      else if (userData.gender == 2) genderText = "Male";
+      else genderText = "Unknown";
     }
 
     const deltaNext = 5;
     const exp = userData.exp || 0;
     const levelUser = expToLevel(exp, deltaNext);
-    const expCurrentLevel = levelToExp(levelUser, deltaNext);
-    const expNextLevel = levelToExp(levelUser + 1, deltaNext);
-    const expProgress = exp - expCurrentLevel;
-    const expForNextLevel = expNextLevel - expCurrentLevel;
-    const percentage = Math.floor((expProgress / expForNextLevel) * 100);
-
     const usersWithExp = allUsers.filter(u => typeof u.exp === "number").sort((a, b) => b.exp - a.exp);
     const expRank = usersWithExp.findIndex(u => u.userID === uid) + 1;
 
@@ -162,98 +134,4 @@ module.exports = {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < 150; i++) {
-      ctx.fillStyle = "white";
-      const x = Math.random() * canvas.width;
-      const y = Math.random() * canvas.height;
-      const radius = Math.random() * 1.5;
-      ctx.beginPath();
-      ctx.arc(x, y, radius, 0, 2 * Math.PI);
-      ctx.fill();
-    }
-
-    // 🔥 Random Color
-    const randomColor = getRandomColor();
-
-    // Border
-    ctx.strokeStyle = randomColor;
-    ctx.lineWidth = 10;
-    ctx.strokeRect(5, 5, canvas.width - 10, canvas.height - 10);
-
-    // Avatar neon circle
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(683, 130, 90, 0, Math.PI * 2, true);
-    ctx.shadowColor = randomColor;
-    ctx.shadowBlur = 40;
-    ctx.strokeStyle = randomColor;
-    ctx.lineWidth = 6;
-    ctx.stroke();
-    ctx.restore();
-
-    // Draw Avatar
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(683, 130, 80, 0, Math.PI * 2, true);
-    ctx.closePath();
-    ctx.clip();
-    ctx.drawImage(avatar, 603, 50, 160, 160);
-    ctx.restore();
-
-    ctx.font = "bold 50px Arial";
-ctx.textAlign = "center";
-
-// Neon glow with stroke
-ctx.save();
-ctx.shadowColor = randomColor;
-ctx.shadowBlur = 30;
-ctx.strokeStyle = randomColor;
-ctx.lineWidth = 4;
-ctx.strokeText(name, 683, 280); // Stroke with neon
-ctx.fillStyle = "#FFFFFF";
-ctx.fillText(name, 683, 280);   // Fill text
-ctx.restore();
-
-    ctx.font = "bold 30px Arial";
-    ctx.textAlign = "left";
-
-    const infoLines = [
-      `🆔 User ID: ${uid}`,
-      `✏️ Nickname: ${name}`,
-      ` Gender: ${genderText}`,
-      `🌐 Username: ${username}`,
-      `* Level: ${levelUser}`,
-      `⚡ Exp: ${exp}`,
-      `💰 Money: $${formatMoney(money)}`,
-      `💬 Messages: ${formatNumber(messages)}`,
-      `🏆 EXP Rank: #${expRank}`,
-      `💸 Money Rank: #${moneyRank}`
-    ];
-
-    const leftX = 200;
-    const rightX = 800;
-    const baseY = 350;
-    const gap = 50;
-
-    for (let i = 0; i < 5; i++) {
-      ctx.fillText(infoLines[i], leftX, baseY + (i * gap));
-    }
-    for (let i = 5; i < 10; i++) {
-      ctx.fillText(infoLines[i], rightX, baseY + ((i - 5) * gap));
-    }
-
-    ctx.font = "bold 24px Arial";
-    ctx.fillStyle = "#FF6688";
-    ctx.textAlign = "center";
-    ctx.fillText(`Last Update: ${moment().format("YYYY-MM-DD HH:mm:ss")}`, canvas.width / 2, 740);
-
-    const tmpPath = path.join(__dirname, "tmp");
-    if (!fs.existsSync(tmpPath)) fs.mkdirSync(tmpPath);
-    const imagePath = path.join(tmpPath, `${uid}_info.png`);
-    fs.writeFileSync(imagePath, canvas.toBuffer());
-
-    message.reply({
-      body: "Here's your profile card:",
-      attachment: fs.createReadStream(imagePath),
-    }, () => fs.unlinkSync(imagePath));
-  }
-};
+      ctx.fillSty
